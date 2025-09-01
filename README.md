@@ -1,2 +1,2 @@
 # Ping-Pong
-A ping pong multiplayer game!
+A ping pong in local multiplayer game!

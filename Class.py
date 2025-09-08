@@ -37,13 +37,13 @@ class Ball(GameSprite):
         self.speed_y = 3
         self.j1points = 0
         self.j2points = 0
-    def update(self,window_width, window_height):
-        self.bounce(window_width, window_height)
+    def update(self,window_width, window_height, player1, player2):
+        self.bounce(window_width, window_height, player1, player2)
         self.rect.x += self.speed_x
         self.rect.y += self.speed_y
-    def bounce(self,window_width, window_height, player1=None, player2=None,sound=None):
+    def bounce(self,window_width, window_height, player1=None, player2=None):
         bounce_sound = mixer.Sound('Ping sound.wav')
-        if self.rect.y+self.width/2 > window_height or self.rect.y-self.width/2 < 0:
+        if self.rect.y+self.rect.width/2 > window_height or self.rect.y-self.rect.width/2 < 0:
             self.speed_y *= -1
             bounce_sound.play()
         if sprite.collide_rect(self, player1.rect) or sprite.collide_rect(self, player2.rect):

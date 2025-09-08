@@ -47,7 +47,7 @@ class Ball(GameSprite):
         if self.rect.y+self.rect.width/2 > window_height or self.rect.y-self.rect.width/2 < 0:
             self.speed_y *= -1
             bounce_sound.play()
-        if sprite.collide_rect(self, player1.rect) or sprite.collide_rect(self, player2.rect):
+        if self.rect.collide_rect(self, player1.rect) or self.rect.collide_rect(self, player2.rect):
             self.speed_x *= -1
             bounce_sound.play()
     def reset(self):

@@ -1,3 +1,4 @@
+
 from pygame import*
 class GameSprite():
     def __init__(self, player_image, player_x, player_y, player_speed, width, height):
@@ -66,3 +67,4 @@ class Ball(GameSprite):
         score2 = font.render("Score: " + str(self.j2points), True, (255, 255, 255))
         window.blit(score1, (10, 10))
         window.blit(score2, (window.get_width() - score2.get_width() - 10, 10))
+

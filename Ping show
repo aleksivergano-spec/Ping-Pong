@@ -16,8 +16,7 @@ ball = Ball("asteroid.png", 50,50, 5, 50,50 )
 player1 = Player("ufo.png", 50,200, 5, 50,200, id=1)
 player2 = Player("ufo.png", 50,200, 5 ,50,200, id=2)
 
-player1.move()
-player2.move()
+
 #GameLoop
 
 running = True
@@ -34,5 +33,5 @@ while running:
     player2.show(window)
     player1.move()
     player2.move()
-    ball.update(window.get_width, window.get_height)
+    ball.update(window.get_width(), window.get_height(), player1, player2)
     display.update()

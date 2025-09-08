@@ -42,7 +42,7 @@ class Ball(GameSprite):
         self.rect.x += self.speed_x
         self.rect.y += self.speed_y
     def bounce(self,window_width, window_height, player1=None, player2=None,sound=None):
-        bounce_sound = mixer.Sound('bounce.wav')
+        bounce_sound = mixer.Sound('Ping sound.wav')
         if self.rect.y+self.width/2 > window_height or self.rect.y-self.width/2 < 0:
             self.speed_y *= -1
             bounce_sound.play()

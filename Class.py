@@ -1,4 +1,5 @@
 from pygame import*
+from label  import Label
 class GameSprite():
     def __init__(self, player_image, player_x, player_y, player_speed, width, height):
         self.image = transform.scale(image.load(player_image), (width, height))
@@ -65,7 +66,7 @@ class Ball(GameSprite):
         score1=Label(10,10, 0, 0, (0,0,0))
         score="Score: " + str(self.j1points)
         score1.set_text(score, fsize)
-        score2=Label(window.get_width() - score2.get_width() - 10,10, 0, 0, (0,0,0))
+        score2=Label(window.get_width()-100,10, 0, 0, (0,0,0))
         score="Score: " + str(self.j2points)
         score2.set_text(score, fsize)
         score1.draw(window)

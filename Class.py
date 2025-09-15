@@ -62,7 +62,11 @@ class Ball(GameSprite):
             self.j1points += 1
             self.reset()
     def show_score(self, window, font):
-        score1 = font.render("Score: " + str(self.j1points), True, (255, 255, 255))
-        score2 = font.render("Score: " + str(self.j2points), True, (255, 255, 255))
-        window.blit(score1, (10, 10))
-        window.blit(score2, (window.get_width() - score2.get_width() - 10, 10))
+        score1=Label(10,10, 0, 0, (0,0,0))
+        score="Score: " + str(self.j1points)
+        score1.set_text(score, fsize)
+        score2=Label(window.get_width() - score2.get_width() - 10,10, 0, 0, (0,0,0))
+        score="Score: " + str(self.j2points)
+        score2.set_text(score, fsize)
+        score1.draw(window)
+        score2.draw(window)

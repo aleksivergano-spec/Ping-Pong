@@ -34,5 +34,5 @@ while running:
     player1.move()
     player2.move()
     ball.update(window.get_width(), window.get_height(), player1, player2)
-    try ball.show_score(window, font.Font())
+    ball.show_score(window,30)
     display.update()

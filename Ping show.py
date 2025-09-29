@@ -13,8 +13,8 @@ collision = mixer.Sound("Ping sound.wav")
 
 #sprite
 ball = Ball("asteroid.png", 50,50, 5, 50,50 )
-player1 = Player("ufo.png", 600,200, 5, 50,200, id=1)
-player2 = Player("ufo.png", 50,200, 5 ,50,200, id=2)
+player1 = Player("ufo.png", 600,200, 5, 50,200, id=2)
+player2 = Player("ufo.png", 50,200, 5 ,50,200, id=1)
 
 
 #GameLoop

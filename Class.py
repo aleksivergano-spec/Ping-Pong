@@ -38,13 +38,13 @@ class Ball(GameSprite):
         self.speed_y = 3
         self.j1points = 0
         self.j2points = 0
-    def update(self,window, player1, player2):
-        self.bounce(window, player1, player2)
+    def update(self,window,temps, player1, player2):
+        self.bounce(window,temps, player1, player2)
         self.rect.x += self.speed_x
         self.rect.y += self.speed_y
-    def bounce(self,window, player1=None, player2=None):
+    def bounce(self,window,temps, player1=None, player2=None):
         bounce_sound = mixer.Sound('Ping sound.wav')
-        self.score(window)
+        self.score(window, temps)
         if self.rect.y+self.rect.width > window.get_height() or self.rect.y<0:
             self.speed_y *= -1
             bounce_sound.play()
@@ -56,13 +56,21 @@ class Ball(GameSprite):
         self.rect.y = window.get_height()/2 +self.rect.height/2
         self.speed_x *= -1
         self.speed_y *= 1
-    def score(self, window):
+    def score(self, window, temps):
         if self.rect.x < 0:
             self.j2points += 1
+            self.Show_Text(window,'Player 1 Loose', temps)
             self.reset(window)
         if self.rect.x+self.rect.width > window.get_width():
             self.j1points += 1
+            self.Show_Text(window,'Player 2 Loose', temps)
             self.reset(window)
+    def Show_Text(self,window=display.set_mode((0,0)), text=str(),temps=int()):
+        Text=Label(window.get_width()/2,window.get_height()/2,0,0,(0,0,0))
+        Text.set_text(text,100)
+        Text.draw(window)
+        display.update()
+        time.delay(1000*temps)
     def show_score(self, window, fsize):
         score1=Label(10,10, 0, 0, (0,0,0))
         score="Score: " + str(self.j1points)
